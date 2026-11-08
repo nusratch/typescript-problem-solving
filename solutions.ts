@@ -1,52 +1,39 @@
 
 
-// // problem solving 1
+// problem solving 1
 
-// function multiplyValue(value: number, multiplier?: number) {
-//     if (multiplier === undefined) {
-//         multiplier = 2;
-//     }
+function multiplyValue(value: number, multiplier?: number) {
+    if (multiplier === undefined) {
+        multiplier = 2;
+    }
     
     
-//     return value * multiplier;
-// }
-
-// const result1 = multiplyValue(5);
-// const result2 = multiplyValue(5, 3); 
-
-
-// console.log(result1);
-// console.log(result2);
+    return value * multiplier;
+}
 
 
 
 
-// // problem solving 2 
 
-//  function processInput(input: string | number | boolean) {
-//     if (typeof input === "string") {
-//         return input.trim().toLowerCase();
-//     }
-//      else if (typeof input === "number") {
-//         return input * 10;
-//     } else {
-//         if (input === true) {
-//             return "Active";
-//         } else {
-//             return "Inactive";
-//         }
-//     }
-// }
 
-// const result1 = processInput("  Hello World  ");
-// const result2 = processInput(5);
-// const result3 = processInput(true);
-// const result4 = processInput(false);
+// problem solving 2 
 
-// console.log(result1); 
-// console.log(result2);
-// console.log(result3); 
-// console.log(result4);
+ function processInput(input: string | number | boolean): string | number  {
+    if (typeof input === "string") {
+        return input.trim().toLowerCase();
+    }
+     else if (typeof input === "number") {
+        return input * 10;
+    } else {
+        if (input === true) {
+            return "Active";
+        } else {
+            return "Inactive";
+        }
+    }
+}
+
+
 
 
 
@@ -54,22 +41,17 @@
 // problem solving 3
 
 
-// function formatCoordinate(
+function formatCoordinate(
 
-//     coordinate: readonly [number, number, string]
-// ){
+    coordinate: readonly [number, number, string]
+){
 
-//     const [latitude, longitude, locationName] = coordinate;
+    const [latitude, longitude, locationName] = coordinate;
 
-//     return `Location: ${locationName} (${latitude}, ${longitude})`;
-// }
+    return `Location: ${locationName} (${latitude}, ${longitude})`;
+}
 
 
-// const coordinate: readonly [number, number, string] = [40.7128, -74.0060, "New York City"];
-
-// const formattedCoordinate = formatCoordinate(coordinate);
-
-// console.log(formattedCoordinate);
 
 
 
@@ -87,13 +69,90 @@
     return result;
 }
 
-const array1 = [1, 2, 3];
-const array2 = [4, 5, 6];
-const array3 = [7, 8, 9];
-
-const concatenatedArray = concatenateArrays(array1, array2, array3);
-
-console.log(concatenatedArray);
 
 
+
+
+// problem solving 5
+
+interface Course {
+    title: string;
+    students: number;
+    isPublished: boolean;
+}
+
+function getPopularCourses(
+    courses: Course[],
+    minStudents: number
+): Course[] {
+    const popularCourses: Course[] = [];
+
+    for (const course of courses) {
+        if (course.isPublished === true && course.students >= minStudents) {
+            popularCourses.push(course);
+        }
+    }
+
+    return popularCourses;
+}
+
+
+// problem solving 6
+
+function pluckValues<T, K extends keyof T>(array: T[], key: K): T[K][] {
+    const result: T[K][] = [];
+
+    for (const item of array) {
+        result.push(item[key]);
+    }
+
+    return result;
+}
+  
+
+// problem solving 7
+
+
+
+class Employee {
+    protected name: string;
+    private baseSalary: number;
+
+    constructor(name: string, baseSalary: number) {
+        this.name = name;
+        this.baseSalary = baseSalary;
+    }
+
+    getDetails(): string {
+        return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
+    }
+}
+
+class Manager extends Employee {
+    private department: string;
+
+    constructor(name: string, baseSalary: number, department: string) {
+        super(name, baseSalary);
+        this.department = department;
+    }
+
+    getRoleInfo(): string {
+        return `Manager of ${this.department}: ${this.name}`;
+    }
+}
+
+
+// problem solving 8
+
+async function validateAgeAsync(age: number): Promise<string> {
+    if (age < 18) {
+        throw new Error("Access Denied: Must be 18 or older");
+    }
+
+    await new Promise<void>((resolve) => {
+        setTimeout(resolve, 1000);
+    });
+
+    return "Access Granted";
+}
 
