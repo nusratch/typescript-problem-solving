@@ -54,19 +54,46 @@
 // problem solving 3
 
 
-function formatCoordinate(
+// function formatCoordinate(
 
-    coordinate: readonly [number, number, string]
-){
+//     coordinate: readonly [number, number, string]
+// ){
 
-    const [latitude, longitude, locationName] = coordinate;
+//     const [latitude, longitude, locationName] = coordinate;
 
-    return `Location: ${locationName} (${latitude}, ${longitude})`;
+//     return `Location: ${locationName} (${latitude}, ${longitude})`;
+// }
+
+
+// const coordinate: readonly [number, number, string] = [40.7128, -74.0060, "New York City"];
+
+// const formattedCoordinate = formatCoordinate(coordinate);
+
+// console.log(formattedCoordinate);
+
+
+
+// problem solving 4
+
+ function concatenateArrays<T>(...arrays: T[][]) {
+
+    const result: T[] = [];
+
+    for (const array of arrays) {
+
+        result.push(...array);
+    }
+
+    return result;
 }
 
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const array3 = [7, 8, 9];
 
-const coordinate: readonly [number, number, string] = [40.7128, -74.0060, "New York City"];
+const concatenatedArray = concatenateArrays(array1, array2, array3);
 
-const formattedCoordinate = formatCoordinate(coordinate);
+console.log(concatenatedArray);
 
-console.log(formattedCoordinate);
+
+
