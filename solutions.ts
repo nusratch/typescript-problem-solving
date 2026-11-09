@@ -1,8 +1,8 @@
 
 
-// problem solving 1
 
-function multiplyValue(value: number, multiplier?: number) {
+
+function multiplyValue(value: number, multiplier?: number) :number {
     if (multiplier === undefined) {
         multiplier = 2;
     }
@@ -16,7 +16,7 @@ function multiplyValue(value: number, multiplier?: number) {
 
 
 
-// problem solving 2 
+
 
  function processInput(input: string | number | boolean): string | number  {
     if (typeof input === "string") {
@@ -38,13 +38,13 @@ function multiplyValue(value: number, multiplier?: number) {
 
 
 
-// problem solving 3
+
 
 
 function formatCoordinate(
 
     coordinate: readonly [number, number, string]
-){
+) : string {
 
     const [latitude, longitude, locationName] = coordinate;
 
@@ -55,9 +55,9 @@ function formatCoordinate(
 
 
 
-// problem solving 4
 
- function concatenateArrays<T>(...arrays: T[][]) {
+
+ function concatenateArrays<T>(...arrays: T[][]): T[] {
 
     const result: T[] = [];
 
@@ -73,7 +73,7 @@ function formatCoordinate(
 
 
 
-// problem solving 5
+
 
 interface Course {
     title: string;
@@ -97,7 +97,10 @@ function getPopularCourses(
 }
 
 
-// problem solving 6
+
+
+
+
 
 function pluckValues<T, K extends keyof T>(array: T[], key: K): T[K][] {
     const result: T[K][] = [];
@@ -110,7 +113,7 @@ function pluckValues<T, K extends keyof T>(array: T[], key: K): T[K][] {
 }
   
 
-// problem solving 7
+
 
 
 
@@ -142,7 +145,11 @@ class Manager extends Employee {
 }
 
 
-// problem solving 8
+
+
+
+
+
 
 async function validateAgeAsync(age: number): Promise<string> {
     if (age < 18) {
